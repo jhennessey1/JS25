@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="chunkMod">
+	<head>
+		<title>Problem Set 4</title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body ng-controller="chunkTroller">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6">
+					<ul>
+						<li ng-repeat="person in arr">
+							{{person}}
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-6">
+					<form ng-submit="addPerson()">
+						<input ng-model="name" placeholder="Name">
+						<input type="submit" value="Submit">
+					</form>
+					<form ng-submit="showGroups()">
+						<select ng-model="groupDiv">
+							<option ng-repeat="number in num" value="{{number}}">{{number}}</option>
+						</select>
+						<input type="submit" value="Show Groups!">
+					</form>
+				</div>
+			</div>
+			<div class="row" ng-show="showGroups">
+				<div class="col-xs-12">
+					<ol>
+						<li ng-repeat="group in arrays">
+							<ul>
+								<li ng-repeat="person in group">{{person}}</li>
+							</ul>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
